@@ -76,6 +76,7 @@ test_{{ package.name }}_{{ param.platform }}_{{ param.backend }}_{{ platform.nam
     image: {{ platform.image }}
     flavor: {{ platform.flavor}}
   commands:
+    - pip install unity-downloader-cli --index-url {{ intra_pypi_url }} --upgrade
     - npm install upm-ci-utils@{{ upm.package_version }} -g --registry {{ upm.registry_url }}
     {% if platform.name == "win" %}
     - | 

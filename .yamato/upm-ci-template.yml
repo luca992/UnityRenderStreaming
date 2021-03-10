@@ -54,6 +54,7 @@ test_{{ project.name }}_{{ param.platform }}_{{ param.backend }}_{{ platform.nam
     model: rtx2080
     {% endif %}
   commands:
+    - pip install unity-downloader-cli --index-url {{ intra_pypi_url }} --upgrade
     - npm install upm-ci-utils@{{ upm.package_version }} -g --registry {{ upm.registry_url }}
     - upm-ci template test -u {{ editor.version }} --project-path {{ project.packagename }} --platform {{ param.platform }} --backend {{ param.backend }} --extra-utr-arg="--timeout=3000"
   artifacts:
